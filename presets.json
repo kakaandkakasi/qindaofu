@@ -1,0 +1,112 @@
+{
+  "01": {
+    "name": "李明轩",
+    "city": "北京",
+    "experience": "3年",
+    "salary": "45-65K",
+    "summary": "3年AI Agent开发经验，精通LangChain、LangGraph、LlamaIndex等主流Agent开发框架，熟悉ReAct、Plan-and-Execute、Tool Calling等多种Agent工作模式。具备完整的企业级Agent系统落地能力，涵盖需求抽象、RAG知识库构建、Multi-Agent协作架构设计与生产部署全流程。",
+    "skills": "Python, LangChain, LangGraph, LlamaIndex, FastAPI, Milvus, Docker, Kubernetes, Redis, Kafka, gRPC, RAG, ReAct, Tool Calling, Multi-Agent, MCP, A2A",
+    "project": "主导研发企业级智能客服Agent系统，采用LangGraph状态机设计ReAct循环，支持CRM查询、订单追踪、退款审批等12个工具的动态调用，日均处理用户咨询10万+，意图识别准确率96%，平均响应时间1.8s。",
+    "work": "2022.06 - 至今 | 北京智云未来科技有限公司 | Agent开发工程师\n2020.07 - 2022.05 | 深圳有数数据科技有限公司 | Python后端开发工程师"
+  },
+  "02": {
+    "name": "王明",
+    "city": "北京",
+    "experience": "3年",
+    "salary": "30-45K",
+    "summary": "5年AI产品经验，主导智能客服Agent从0到1上线，月活2万+",
+    "skills": "需求分析, PRD撰写, 数据分析, 竞品分析, A/B测试, RAG架构",
+    "project": "智能客服助手0-1上线：RAG检索策略，F1/精确率/召回率评估，AI准确率58%→90%，月活2万+",
+    "work": ""
+  },
+  "03": {
+    "name": "张算法",
+    "city": "深圳",
+    "experience": "4年",
+    "salary": "45-70K",
+    "summary": "NLP算法研发，Transformer预训练+SFT微调",
+    "skills": "Python, PyTorch, Transformer, NLP, CV, 模型训练",
+    "project": "Transformer预训练+SFT，困惑度18.5，文本分类96%，实体识别F1 94%",
+    "work": "2021-至今 | 深圳AI Lab | NLP算法工程师"
+  },
+  "04": {
+    "name": "刘落地",
+    "city": "杭州",
+    "experience": "3年",
+    "salary": "35-55K",
+    "summary": "深耕医疗AI落地，精通RAG架构设计与医疗知识库",
+    "skills": "Python, LangChain, RAG, Milvus, FastAPI",
+    "project": "医疗RAG系统，病历智能检索，日均5000+查询，召回率85%+",
+    "work": "2022-至今 | 杭州医疗AI公司 | RAG工程师"
+  },
+  "05": {
+    "name": "赵前端",
+    "city": "上海",
+    "experience": "2年",
+    "salary": "25-40K",
+    "summary": "AI前端开发，LLM流式输出，多轮会话管理",
+    "skills": "React, Vue, TypeScript, SSE, LLM API",
+    "project": "AI对话平台前端，SSE流式，20+轮上下文，延迟200ms",
+    "work": "2022-至今 | 上海AI创业公司 | 前端工程师"
+  },
+  "06": {
+    "name": "陈建国",
+    "city": "深圳",
+    "experience": "4年",
+    "salary": "40-60K",
+    "summary": "LLM服务平台架构，日均500万+调用",
+    "skills": "Python, Go, FastAPI, vLLM, Milvus, Redis, Docker, K8s",
+    "project": "LLM服务化平台，vLLM推理3倍，Milvus 1000+并发，RAG召回率85%+",
+    "work": "2021-至今 | 深圳AI Lab | 后端工程师"
+  },
+  "07": {
+    "name": "刘芳",
+    "city": "杭州",
+    "experience": "2年",
+    "salary": "20-30K",
+    "summary": "AIGC内容生产，5000+篇文章",
+    "skills": "A/B测试, ChatGPT, Midjourney, 内容策划",
+    "project": "AIGC内容SOP，5000+篇生成，效率200%+",
+    "work": "2022-至今 | 杭州电商AI公司 | AI运营"
+  },
+  "08": {
+    "name": "王小梅",
+    "city": "成都",
+    "experience": "1年",
+    "salary": "10-18K",
+    "summary": "LLM微调数据标注，10万+对话",
+    "skills": "数据标注, QA审核, NLP标注, 质量控制",
+    "project": "LLM微调标注，10万+对话，制定30+规范，NLP准确率95%+",
+    "work": "2023-至今 | 成都AI数据公司 | 数据标注员"
+  },
+  "09": {
+    "name": "赵安全",
+    "city": "北京",
+    "experience": "3年",
+    "salary": "35-55K",
+    "summary": "企业级LLM安全评估，Prompt注入防御",
+    "skills": "AI安全, Prompt防御, Guardrails, 红队测试",
+    "project": "LLM安全评估，20+攻击类型，Guardrails 100+规则",
+    "work": "2022-至今 | 北京安全AI公司 | AI安全专家"
+  },
+  "10": {
+    "name": "周销售",
+    "city": "上海",
+    "experience": "5年",
+    "salary": "30-50K",
+    "summary": "AI售前方案，20+企业转型方案",
+    "skills": "AI解决方案, POC演示, 招投标, 客户培训",
+    "project": "AI售前，20+方案，8个POC，单项目200万",
+    "work": "2020-至今 | 上海AI公司 | 售前顾问"
+  },
+  "11": {
+    "name": "林品牌",
+    "city": "北京",
+    "experience": "3年",
+    "salary": "25-40K",
+    "summary": "AI品牌推广，0到10万+粉丝",
+    "skills": "AI营销, 社媒运营, AIGC, KOL, 品牌策划",
+    "project": "品牌推广，10万+粉丝，AIGC 3倍产出",
+    "work": "2022-至今 | 北京AI公司 | 品牌营销"
+  }
+}

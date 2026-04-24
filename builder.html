@@ -4,753 +4,219 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>清道夫 · AI简历助手</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    
     :root {
-      --bg: #050505;
-      --surface: #0a0a0a;
-      --border: #1a1a1a;
-      --text: #fff;
-      --muted: #666;
-      --accent: #3b82f6;
+      --bg: #0a0a0f;
+      --surface: #12121a;
+      --border: #1e1e2e;
+      --text: #e4e4e7;
+      --muted: #71717a;
+      --accent: #6366f1;
+      --accent2: #8b5cf6;
     }
+    body { font-family: 'Space Grotesk', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; }
     
-    body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: 'Space Grotesk', -apple-system, sans-serif;
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-      overflow: hidden;
-    }
+    /* Header */
+    .header { padding: 20px 40px; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
+    .logo { font-size: 20px; font-weight: 700; background: linear-gradient(135deg, var(--accent), var(--accent2)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .header-actions { display: flex; gap: 12px; }
+    .btn { padding: 10px 20px; border-radius: 8px; border: none; cursor: pointer; font-family: inherit; font-size: 14px; font-weight: 500; transition: all 0.2s; }
+    .btn-reset { background: var(--surface); color: var(--text); border: 1px solid var(--border); }
+    .btn-reset:hover { border-color: var(--accent); }
+    .btn-export { background: linear-gradient(135deg, var(--accent), var(--accent2)); color: white; }
+    .btn-export:hover { opacity: 0.9; }
+
+    /* Main layout */
+    .main { display: flex; height: calc(100vh - 61px); }
     
-    /* Top Bar */
-    .topbar {
-      height: 56px;
-      border-bottom: 1px solid var(--border);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 20px;
-      background: var(--surface);
-      flex-shrink: 0;
-    }
-    
-    .topbar-left {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-    }
-    
-    .topbar-logo {
-      font-size: 14px;
-      font-weight: 600;
-    }
-    
-    .topbar-logo span {
-      color: var(--muted);
-      font-weight: 400;
-    }
-    
-    .topbar-tabs {
-      display: flex;
-      gap: 4px;
-      background: #0f0f0f;
-      padding: 4px;
-      border-radius: 8px;
-    }
-    
-    .topbar-tab {
-      padding: 6px 14px;
-      border-radius: 6px;
-      font-size: 13px;
-      cursor: pointer;
-      color: var(--muted);
-      transition: all 0.15s;
-    }
-    
-    .topbar-tab.active {
-      background: #1a1a1a;
-      color: var(--text);
-    }
-    
-    .topbar-actions {
-      display: flex;
-      gap: 10px;
-    }
-    
-    .btn {
-      padding: 8px 18px;
-      border-radius: 8px;
-      font-size: 13px;
-      font-weight: 500;
-      cursor: pointer;
-      border: none;
-      transition: all 0.2s;
-      font-family: inherit;
-    }
-    
-    .btn-secondary {
-      background: var(--surface);
-      color: var(--text);
-      border: 1px solid var(--border);
-    }
-    
-    .btn-primary {
-      background: var(--text);
-      color: var(--bg);
-    }
-    
-    /* Main Layout */
-    .main {
-      display: flex;
-      flex: 1;
-      overflow: hidden;
-    }
-    
-    /* Left Sidebar - Template List */
-    .sidebar {
-      width: 240px;
-      border-right: 1px solid var(--border);
-      background: var(--surface);
-      overflow-y: auto;
-      flex-shrink: 0;
-    }
-    
-    .sidebar-header {
-      padding: 14px 16px;
-      font-size: 10px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: var(--muted);
-      border-bottom: 1px solid var(--border);
-    }
-    
-    .template-list {
-      padding: 8px;
-    }
-    
-    .template-item {
-      padding: 12px 14px;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: all 0.15s;
-      margin-bottom: 3px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    
-    .template-item:hover {
-      background: #111;
-    }
-    
-    .template-item.active {
-      background: #1a1a1a;
-    }
-    
-    .template-icon {
-      font-size: 16px;
-    }
-    
-    .template-info {
-      flex: 1;
-      overflow: hidden;
-    }
-    
-    .template-name {
-      font-size: 13px;
-      font-weight: 500;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-    
-    /* Editor Area - Left: Preview, Right: Form */
-    .editor {
-      flex: 1;
-      display: flex;
-      overflow: hidden;
-    }
-    
-    .editor-preview {
-      flex: 1;
-      overflow-y: auto;
-      padding: 32px;
-      background: #f5f5f5;
-    }
-    
-    .editor-form {
-      width: 45%;
-      border-left: 1px solid var(--border);
-      overflow-y: auto;
-      padding: 24px;
-      background: var(--surface);
-    }
-    
-    /* Form Styles */
-    .form-section {
-      margin-bottom: 24px;
-    }
-    
-    .form-section-title {
-      font-size: 11px;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 14px;
-      padding-bottom: 8px;
-      border-bottom: 1px solid var(--border);
-    }
-    
-    .form-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-      margin-bottom: 12px;
-    }
-    
-    .form-group {
-      display: flex;
-      flex-direction: column;
-      gap: 5px;
-    }
-    
-    .form-group.full {
-      grid-column: 1 / -1;
-    }
-    
-    .form-label {
-      font-size: 11px;
-      color: #888;
-    }
-    
-    .form-input, .form-textarea {
-      background: #111;
-      border: 1px solid #222;
-      border-radius: 6px;
-      padding: 10px 12px;
-      color: var(--text);
-      font-size: 13px;
-      font-family: inherit;
-      transition: border-color 0.2s;
-    }
-    
-    .form-input:focus, .form-textarea:focus {
-      outline: none;
-      border-color: #333;
-    }
-    
-    .form-textarea {
-      resize: vertical;
-      min-height: 80px;
-    }
-    
-    /* Resume Preview Styles */
-    .resume-paper {
-      background: #fff;
-      color: #111;
-      border-radius: 8px;
-      padding: 40px;
-      max-width: 600px;
-      margin: 0 auto;
-      box-shadow: 0 2px 20px rgba(0,0,0,0.1);
-      font-size: 13px;
-    }
-    
-    .resume-name {
-      font-size: 24px;
-      font-weight: 700;
-      margin-bottom: 4px;
-    }
-    
-    .resume-target {
-      font-size: 14px;
-      color: #666;
-      margin-bottom: 12px;
-    }
-    
-    .resume-meta {
-      display: flex;
-      gap: 16px;
-      font-size: 12px;
-      color: #888;
-      margin-bottom: 20px;
-      padding-bottom: 16px;
-      border-bottom: 1px solid #eee;
-    }
-    
-    .resume-section {
-      margin-bottom: 20px;
-    }
-    
-    .resume-section-title {
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      color: #111;
-      margin-bottom: 10px;
-      padding-bottom: 4px;
-      border-bottom: 1px solid #eee;
-    }
-    
-    .resume-text {
-      font-size: 12px;
-      color: #444;
-      line-height: 1.7;
-    }
-    
-    .resume-skills {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-    }
-    
-    .skill-tag {
-      background: #f0f0f0;
-      padding: 3px 8px;
-      border-radius: 4px;
-      font-size: 11px;
-      color: #333;
-    }
-    
-    .resume-item {
-      margin-bottom: 14px;
-    }
-    
-    .resume-item-header {
-      display: flex;
-      justify-content: space-between;
-      margin-bottom: 2px;
-    }
-    
-    .resume-item-title {
-      font-weight: 600;
-      font-size: 13px;
-    }
-    
-    .resume-item-date {
-      font-size: 11px;
-      color: #888;
-    }
-    
-    .resume-item-subtitle {
-      font-size: 12px;
-      color: #666;
-      margin-bottom: 4px;
-    }
-    
-    .resume-item-desc {
-      font-size: 12px;
-      color: #444;
-      line-height: 1.6;
-    }
-    
-    /* Responsive */
-    @media print {
-      .topbar, .sidebar, .editor-form { display: none !important; }
-      .editor { display: block; }
-      .editor-preview { 
-        padding: 0; 
-        background: white;
-      }
-      .resume-paper {
-        box-shadow: none;
-        max-width: 100%;
-      }
+    /* Sidebar */
+    .sidebar { width: 320px; border-right: 1px solid var(--border); padding: 24px; overflow-y: auto; flex-shrink: 0; }
+    .sidebar-title { font-size: 12px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 16px; }
+    .template-list { display: flex; flex-direction: column; gap: 8px; }
+    .template-item { padding: 14px 16px; border-radius: 10px; background: var(--surface); border: 1px solid var(--border); cursor: pointer; transition: all 0.2s; text-align: left; font-family: inherit; color: var(--text); font-size: 14px; display: flex; align-items: center; gap: 10px; }
+    .template-item:hover { border-color: var(--accent); transform: translateX(4px); }
+    .template-item.active { border-color: var(--accent); background: rgba(99,102,241,0.1); }
+    .template-icon { font-size: 18px; }
+
+    /* Editor */
+    .editor { flex: 1; padding: 32px; overflow-y: auto; }
+    .form-section { margin-bottom: 28px; }
+    .form-section-title { font-size: 13px; font-weight: 600; color: var(--muted); margin-bottom: 14px; text-transform: uppercase; letter-spacing: 0.5px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+    .form-group { display: flex; flex-direction: column; gap: 6px; }
+    .form-label { font-size: 12px; color: var(--muted); font-weight: 500; }
+    .form-input, .form-textarea { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 12px 14px; color: var(--text); font-family: inherit; font-size: 14px; transition: border-color 0.2s; width: 100%; }
+    .form-input:focus, .form-textarea:focus { outline: none; border-color: var(--accent); }
+    .form-textarea { resize: vertical; min-height: 100px; }
+    .form-group.full .form-input,
+    .form-group.full .form-textarea { width: 100%; }
+
+    /* Preview */
+    .preview { width: 420px; border-left: 1px solid var(--border"); padding: 24px; overflow-y: auto; flex-shrink: 0; background: var(--surface); }
+    .preview-title { font-size: 12px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 16px; }
+    .resume-paper { background: white; border-radius: 12px; padding: 28px; color: #1a1a1a; font-size: 13px; box-shadow: 0 4px 24px rgba(0,0,0,0.3); }
+    .resume-name { font-size: 22px; font-weight: 700; color: #0a0a0f; margin-bottom: 6px; }
+    .resume-target { font-size: 14px; color: var(--accent); font-weight: 600; margin-bottom: 12px; }
+    .resume-meta { display: flex; gap: 16px; font-size: 12px; color: #71717a; margin-bottom: 20px; padding-bottom: 16px; border-bottom: 1px solid #e4e4e7; }
+    .resume-section { margin-bottom: 18px; }
+    .resume-section-title { font-size: 11px; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
+    .resume-text { font-size: 13px; color: #3a3a3a; line-height: 1.6; }
+    .resume-skills { display: flex; flex-wrap: wrap; gap: 6px; }
+    .skill-tag { background: #f0f0ff; color: var(--accent); padding: 4px 10px; border-radius: 4px; font-size: 11px; font-weight: 500; }
+    .resume-item { margin-bottom: 10px; }
+    .resume-item-desc { font-size: 12px; color: #3a3a3a; line-height: 1.5; }
+
+    @media (max-width: 1200px) {
+      .preview { display: none; }
     }
   </style>
 </head>
 <body>
-  <div class="topbar">
-    <div class="topbar-left">
-      <div class="topbar-logo">清道夫 <span>· AI简历助手</span></div>
-      <div class="topbar-tabs">
-        <div class="topbar-tab active">模版</div>
-      </div>
+  <header class="header">
+    <div class="logo">清道夫 · AI简历助手</div>
+    <div class="header-actions">
+      <button class="btn btn-reset" onclick="resetForm()">重置</button>
+      <button class="btn btn-export" onclick="exportResume()">导出</button>
     </div>
-    <div class="topbar-actions">
-      <button class="btn btn-secondary" onclick="resetForm()">重置</button>
-      <button class="btn btn-primary" onclick="window.print()">导出</button>
-    </div>
-  </div>
-  
-  <div class="main">
-    <div class="sidebar">
-      <div class="sidebar-header">选择岗位</div>
+  </header>
+
+  <main class="main">
+    <aside class="sidebar">
+      <div class="sidebar-title">选择岗位 🤖</div>
       <div class="template-list" id="templateList"></div>
-    </div>
-    
-    <div class="editor">
-      <div class="editor-form" id="editorForm"></div>
-      <div class="editor-preview">
-        <div class="resume-paper" id="resumePaper"></div>
-      </div>
-    </div>
-  </div>
+    </aside>
+
+    <section class="editor">
+      <form id="editorForm">
+        <div id="formContent"></div>
+      </form>
+    </section>
+
+    <aside class="preview">
+      <div class="preview-title">实时预览 📄</div>
+      <div id="resumePaper" class="resume-paper"></div>
+    </aside>
+  </main>
 
   <script>
-    const templates = [
-      { id: '01', icon: '🤖', name: 'Agent开发工程师', desc: 'LangChain/LlamaIndex' },
-      { id: '02', icon: '🎯', name: 'AI产品经理', desc: 'AI产品规划' },
-      { id: '03', icon: '🧠', name: 'AI算法工程师', desc: '模型训练/深度学习' },
-      { id: '04', icon: '⚡', name: '垂类落地工程师', desc: '行业AI应用' },
-      { id: '05', icon: '🎨', name: '前端工程师', desc: 'AI前端开发' },
-      { id: '06', icon: '⚙️', name: '后端工程师', desc: 'AI服务架构' },
-      { id: '07', icon: '📊', name: 'AI运营', desc: '产品运营增长' },
-      { id: '08', icon: '🏷️', name: '数据标注员', desc: '数据标注管理' },
-      { id: '09', icon: '🔒', name: 'AI安全专家', desc: 'AI安全对齐' },
-      { id: '10', icon: '💼', name: '售前顾问', desc: 'AI解决方案' },
-      { id: '11', icon: '📢', name: '市场品牌', desc: 'AI营销推广' },
-    ];
-    
-    // Form templates for each job
-    const formTemplates = {
-      '01': \`
-        <div class="form-section">
-          <div class="form-section-title">基本信息</div>
-          <div class="form-row">
-            <div class="form-group"><label class="form-label">姓名</label><input type="text" id="name" class="form-input" value="李明轩"></div>
-            <div class="form-group"><label class="form-label">城市</label><input type="text" id="city" class="form-input" value="北京"></div>
-          </div>
-          <div class="form-row">
-            <div class="form-group"><label class="form-label">工作年限</label><input type="text" id="experience" class="form-input" value="3年"></div>
-            <div class="form-group"><label class="form-label">期望薪资</label><input type="text" id="salary" class="form-input" value="45-65K"></div>
-          </div>
-        </div>
-        <div class="form-section">
-          <div class="form-section-title">简历内容</div>
-          <div class="form-group full"><label class="form-label">个人简介</label><textarea id="summary" class="form-textarea">3年Agent开发经验，精通LangChain/LangGraph/LlamaIndex，ReAct/Multi-Agent工作模式</textarea></div>
-          <div class="form-group full"><label class="form-label">核心技能</label><input type="text" id="skills" class="form-input" value="Python, LangChain, LangGraph, LlamaIndex, FastAPI, Milvus, Docker"></div>
-        </div>
-        <div class="form-section">
-          <div class="form-section-title">项目经历</div>
-          <div class="form-group full"><label class="form-label">项目描述</label><textarea id="project" class="form-textarea">企业级智能客服Agent，12工具动态调用，日均10万+咨询，召回率89%</textarea></div>
-        </div>
-        <div class="form-section">
-          <div class="form-section-title">工作经历</div>
-          <div class="form-group full"><label class="form-label">工作经历</label><textarea id="work" class="form-textarea">2022-至今 | 北京智云未来科技 | Agent开发工程师</textarea></div>
-        </div>
-      \`,
-      '02': \`
-        <div class="form-section">
-          <div class="form-section-title">基本信息</div>
-          <div class="form-row">
-            <div class="form-group"><label class="form-label">姓名</label><input type="text" id="name" class="form-input" value="王明"></div>
-            <div class="form-group"><label class="form-label">城市</label><input type="text" id="city" class="form-input" value="北京"></div>
-          </div>
-          <div class="form-row">
-            <div class="form-group"><label class="form-label">工作年限</label><input type="text" id="experience" class="form-input" value="3年"></div>
-            <div class="form-group"><label class="form-label">期望薪资</label><input type="text" id="salary" class="form-input" value="30-45K"></div>
-          </div>
-        </div>
-        <div class="form-section">
-          <div class="form-section-title">简历内容</div>
-          <div class="form-group full"><label class="form-label">个人简介</label><textarea id="summary" class="form-textarea">5年AI产品经验，主导智能客服Agent从0到1上线，月活2万+</textarea></div>
-          <div class="form-group full"><label class="form-label">核心技能</label><input type="text" id="skills" class="form-input" value="需求分析, PRD撰写, 数据分析, 竞品分析, A/B测试, RAG架构"></div>
-        </div>
-        <div class="form-section">
-          <div class="form-section-title">项目经历</div>
-          <div class="form-group full"><label class="form-label">项目描述</label><textarea id="project" class="form-textarea">智能客服助手0-1上线：RAG检索策略，F1/精确率/召回率评估，AI准确率58%到90%，月活2万+</textarea></div>
-        </div>
-        <div class="form-section">
-          <div class="form-section-title">工作经历</div>
-          <div class="form-group full"><label class="form-label">工作经历</label><textarea id="work" class="form-textarea"></textarea></div>
-        </div>
-      \`,
-      '03': \`
-        <div class="form-section">
-          <div class="form-section-title">基本信息</div>
-          <div class="form-row">
-            <div class="form-group"><label class="form-label">姓名</label><input type="text" id="name" class="form-input" value="张算法"></div>
-            <div class="form-group"><label class="form-label">城市</label><input type="text" id="city" class="form-input" value="深圳"></div>
-          </div>
-          <div class="form-row">
-            <div class="form-group"><label class="form-label">工作年限</label><input type="text" id="experience" class="form-input" value="4年"></div>
-            <div class="form-group"><label class="form-label">期望薪资</label><input type="text" id="salary" class="form-input" value="45-70K"></div>
-          </div>
-        </div>
-        <div class="form-section">
-          <div class="form-section-title">简历内容</div>
-          <div class="form-group full"><label class="form-label">个人简介</label><textarea id="summary" class="form-textarea">NLP算法研发，Transformer预训练+SFT微调</textarea></div>
-          <div class="form-group full"><label class="form-label">核心技能</label><input type="text" id="skills" class="form-input" value="Python, PyTorch, Transformer, NLP, CV, 模型训练"></div>
-        </div>
-        <div class="form-section">
-          <div class="form-section-title">项目经历</div>
-          <div class="form-group full"><label class="form-label">项目描述</label><textarea id="project" class="form-textarea">Transformer预训练+SFT，困惑度18.5，文本分类96%，实体识别F1 94%</textarea></div>
-        </div>
-        <div class="form-section">
-          <div class="form-section-title">工作经历</div>
-          <div class="form-group full"><label class="form-label">工作经历</label><textarea id="work" class="form-textarea"></textarea></div>
-        </div>
-      \`,
-      '04': \`
-        <div class="form-section">
-          <div class="form-section-title">基本信息</div>
-          <div class="form-row">
-            <div class="form-group"><label class="form-label">姓名</label><input type="text" id="name" class="form-input" value="刘落地"></div>
-            <div class="form-group"><label class="form-label">城市</label><input type="text" id="city" class="form-input" value="杭州"></div>
-          </div>
-          <div class="form-row">
-            <div class="form-group"><label class="form-label">工作年限</label><input type="text" id="experience" class="form-input" value="3年"></div>
-            <div class="form-group"><label class="form-label">期望薪资</label><input type="text" id="salary" class="form-input" value="35-55K"></div>
-          </div>
-        </div>
-        <div class="form-section">
-          <div class="form-section-title">简历内容</div>
-          <div class="form-group full"><label class="form-label">个人简介</label><textarea id="summary" class="form-textarea">深耕医疗AI落地，精通RAG架构设计与医疗知识库</textarea></div>
-          <div class="form-group full"><label class="form-label">核心技能</label><input type="text" id="skills" class="form-input" value="Python, LangChain, RAG, Milvus, FastAPI"></div>
-        </div>
-        <div class="form-section">
-          <div class="form-section-title">项目经历</div>
-          <div class="form-group full"><label class="form-label">项目描述</label><textarea id="project" class="form-textarea">医疗RAG系统，病历智能检索，日均5000+查询，召回率85%以上</textarea></div>
-        </div>
-        <div class="form-section">
-          <div class="form-section-title">工作经历</div>
-          <div class="form-group full"><label class="form-label">工作经历</label><textarea id="work" class="form-textarea"></textarea></div>
-        </div>
-      \`,
-      '05': \`
-        <div class="form-section">
-          <div class="form-section-title">基本信息</div>
-          <div class="form-row">
-            <div class="form-group"><label class="form-label">姓名</label><input type="text" id="name" class="form-input" value="赵前端"></div>
-            <div class="form-group"><label class="form-label">城市</label><input type="text" id="city" class="form-input" value="上海"></div>
-          </div>
-          <div class="form-row">
-            <div class="form-group"><label class="form-label">工作年限</label><input type="text" id="experience" class="form-input" value="2年"></div>
-            <div class="form-group"><label class="form-label">期望薪资</label><input type="text" id="salary" class="form-input" value="25-40K"></div>
-          </div>
-        </div>
-        <div class="form-section">
-          <div class="form-section-title">简历内容</div>
-          <div class="form-group full"><label class="form-label">个人简介</label><textarea id="summary" class="form-textarea">AI前端开发，LLM流式输出，多轮会话管理</textarea></div>
-          <div class="form-group full"><label class="form-label">核心技能</label><input type="text" id="skills" class="form-input" value="React, Vue, TypeScript, SSE, LLM API"></div>
-        </div>
-        <div class="form-section">
-          <div class="form-section-title">项目经历</div>
-          <div class="form-group full"><label class="form-label">项目描述</label><textarea id="project" class="form-textarea">AI对话平台前端，SSE流式，20+轮上下文，延迟200ms</textarea></div>
-        </div>
-        <div class="form-section">
-          <div class="form-section-title">工作经历</div>
-          <div class="form-group full"><label class="form-label">工作经历</label><textarea id="work" class="form-textarea"></textarea></div>
-        </div>
-      \`,
-      '06': \`
-        <div class="form-section">
-          <div class="form-section-title">基本信息</div>
-          <div class="form-row">
-            <div class="form-group"><label class="form-label">姓名</label><input type="text" id="name" class="form-input" value="陈建国"></div>
-            <div class="form-group"><label class="form-label">城市</label><input type="text" id="city" class="form-input" value="深圳"></div>
-          </div>
-          <div class="form-row">
-            <div class="form-group"><label class="form-label">工作年限</label><input type="text" id="experience" class="form-input" value="4年"></div>
-            <div class="form-group"><label class="form-label">期望薪资</label><input type="text" id="salary" class="form-input" value="40-60K"></div>
-          </div>
-        </div>
-        <div class="form-section">
-          <div class="form-section-title">简历内容</div>
-          <div class="form-group full"><label class="form-label">个人简介</label><textarea id="summary" class="form-textarea">LLM服务平台架构，日均500万+调用</textarea></div>
-          <div class="form-group full"><label class="form-label">核心技能</label><input type="text" id="skills" class="form-input" value="Python, Go, FastAPI, vLLM, Milvus, Redis, Docker, K8s"></div>
-        </div>
-        <div class="form-section">
-          <div class="form-section-title">项目经历</div>
-          <div class="form-group full"><label class="form-label">项目描述</label><textarea id="project" class="form-textarea">LLM服务化平台，vLLM推理3倍，Milvus 1000+并发，RAG召回率85%以上</textarea></div>
-        </div>
-        <div class="form-section">
-          <div class="form-section-title">工作经历</div>
-          <div class="form-group full"><label class="form-label">工作经历</label><textarea id="work" class="form-textarea"></textarea></div>
-        </div>
-      \`,
-      '07': \`
-        <div class="form-section">
-          <div class="form-section-title">基本信息</div>
-          <div class="form-row">
-            <div class="form-group"><label class="form-label">姓名</label><input type="text" id="name" class="form-input" value="刘芳"></div>
-            <div class="form-group"><label class="form-label">城市</label><input type="text" id="city" class="form-input" value="杭州"></div>
-          </div>
-          <div class="form-row">
-            <div class="form-group"><label class="form-label">工作年限</label><input type="text" id="experience" class="form-input" value="2年"></div>
-            <div class="form-group"><label class="form-label">期望薪资</label><input type="text" id="salary" class="form-input" value="20-30K"></div>
-          </div>
-        </div>
-        <div class="form-section">
-          <div class="form-section-title">简历内容</div>
-          <div class="form-group full"><label class="form-label">个人简介</label><textarea id="summary" class="form-textarea">AIGC内容生产，5000+篇文章</textarea></div>
-          <div class="form-group full"><label class="form-label">核心技能</label><input type="text" id="skills" class="form-input" value="SQL, A/B测试, ChatGPT, Midjourney, 内容策划"></div>
-        </div>
-        <div class="form-section">
-          <div class="form-section-title">项目经历</div>
-          <div class="form-group full"><label class="form-label">项目描述</label><textarea id="project" class="form-textarea">AIGC内容SOP，5000+篇生成，效率200%以上</textarea></div>
-        </div>
-        <div class="form-section">
-          <div class="form-section-title">工作经历</div>
-          <div class="form-group full"><label class="form-label">工作经历</label><textarea id="work" class="form-textarea"></textarea></div>
-        </div>
-      \`,
-      '08': \`
-        <div class="form-section">
-          <div class="form-section-title">基本信息</div>
-          <div class="form-row">
-            <div class="form-group"><label class="form-label">姓名</label><input type="text" id="name" class="form-input" value="王小梅"></div>
-            <div class="form-group"><label class="form-label">城市</label><input type="text" id="city" class="form-input" value="成都"></div>
-          </div>
-          <div class="form-row">
-            <div class="form-group"><label class="form-label">工作年限</label><input type="text" id="experience" class="form-input" value="1年"></div>
-            <div class="form-group"><label class="form-label">期望薪资</label><input type="text" id="salary" class="form-input" value="10-18K"></div>
-          </div>
-        </div>
-        <div class="form-section">
-          <div class="form-section-title">简历内容</div>
-          <div class="form-group full"><label class="form-label">个人简介</label><textarea id="summary" class="form-textarea">LLM微调数据标注，10万+对话</textarea></div>
-          <div class="form-group full"><label class="form-label">核心技能</label><input type="text" id="skills" class="form-input" value="数据标注, QA审核, NLP标注, 质量控制"></div>
-        </div>
-        <div class="form-section">
-          <div class="form-section-title">项目经历</div>
-          <div class="form-group full"><label class="form-label">项目描述</label><textarea id="project" class="form-textarea">LLM微调标注，10万+对话，制定30+规范，NLP准确率95%以上</textarea></div>
-        </div>
-        <div class="form-section">
-          <div class="form-section-title">工作经历</div>
-          <div class="form-group full"><label class="form-label">工作经历</label><textarea id="work" class="form-textarea"></textarea></div>
-        </div>
-      \`,
-      '09': \`
-        <div class="form-section">
-          <div class="form-section-title">基本信息</div>
-          <div class="form-row">
-            <div class="form-group"><label class="form-label">姓名</label><input type="text" id="name" class="form-input" value="赵安全"></div>
-            <div class="form-group"><label class="form-label">城市</label><input type="text" id="city" class="form-input" value="北京"></div>
-          </div>
-          <div class="form-row">
-            <div class="form-group"><label class="form-label">工作年限</label><input type="text" id="experience" class="form-input" value="3年"></div>
-            <div class="form-group"><label class="form-label">期望薪资</label><input type="text" id="salary" class="form-input" value="35-55K"></div>
-          </div>
-        </div>
-        <div class="form-section">
-          <div class="form-section-title">简历内容</div>
-          <div class="form-group full"><label class="form-label">个人简介</label><textarea id="summary" class="form-textarea">企业级LLM安全评估，Prompt注入防御</textarea></div>
-          <div class="form-group full"><label class="form-label">核心技能</label><input type="text" id="skills" class="form-input" value="AI安全, Prompt防御, Guardrails, 红队测试"></div>
-        </div>
-        <div class="form-section">
-          <div class="form-section-title">项目经历</div>
-          <div class="form-group full"><label class="form-label">项目描述</label><textarea id="project" class="form-textarea">LLM安全评估，20+攻击类型，Guardrails 100+规则</textarea></div>
-        </div>
-        <div class="form-section">
-          <div class="form-section-title">工作经历</div>
-          <div class="form-group full"><label class="form-label">工作经历</label><textarea id="work" class="form-textarea"></textarea></div>
-        </div>
-      \`,
-      '10': \`
-        <div class="form-section">
-          <div class="form-section-title">基本信息</div>
-          <div class="form-row">
-            <div class="form-group"><label class="form-label">姓名</label><input type="text" id="name" class="form-input" value="周销售"></div>
-            <div class="form-group"><label class="form-label">城市</label><input type="text" id="city" class="form-input" value="上海"></div>
-          </div>
-          <div class="form-row">
-            <div class="form-group"><label class="form-label">工作年限</label><input type="text" id="experience" class="form-input" value="5年"></div>
-            <div class="form-group"><label class="form-label">期望薪资</label><input type="text" id="salary" class="form-input" value="30-50K"></div>
-          </div>
-        </div>
-        <div class="form-section">
-          <div class="form-section-title">简历内容</div>
-          <div class="form-group full"><label class="form-label">个人简介</label><textarea id="summary" class="form-textarea">AI售前方案，20+企业转型方案</textarea></div>
-          <div class="form-group full"><label class="form-label">核心技能</label><input type="text" id="skills" class="form-input" value="AI解决方案, POC演示, 招投标, 客户培训"></div>
-        </div>
-        <div class="form-section">
-          <div class="form-section-title">项目经历</div>
-          <div class="form-group full"><label class="form-label">项目描述</label><textarea id="project" class="form-textarea">AI售前，20+方案，8个POC，单项目200万</textarea></div>
-        </div>
-        <div class="form-section">
-          <div class="form-section-title">工作经历</div>
-          <div class="form-group full"><label class="form-label">工作经历</label><textarea id="work" class="form-textarea"></textarea></div>
-        </div>
-      \`,
-      '11': \`
-        <div class="form-section">
-          <div class="form-section-title">基本信息</div>
-          <div class="form-row">
-            <div class="form-group"><label class="form-label">姓名</label><input type="text" id="name" class="form-input" value="林品牌"></div>
-            <div class="form-group"><label class="form-label">城市</label><input type="text" id="city" class="form-input" value="北京"></div>
-          </div>
-          <div class="form-row">
-            <div class="form-group"><label class="form-label">工作年限</label><input type="text" id="experience" class="form-input" value="3年"></div>
-            <div class="form-group"><label class="form-label">期望薪资</label><input type="text" id="salary" class="form-input" value="25-40K"></div>
-          </div>
-        </div>
-        <div class="form-section">
-          <div class="form-section-title">简历内容</div>
-          <div class="form-group full"><label class="form-label">个人简介</label><textarea id="summary" class="form-textarea">AI品牌推广，0到10万+粉丝</textarea></div>
-          <div class="form-group full"><label class="form-label">核心技能</label><input type="text" id="skills" class="form-input" value="AI营销, 社媒运营, AIGC, KOL, 品牌策划"></div>
-        </div>
-        <div class="form-section">
-          <div class="form-section-title">项目经历</div>
-          <div class="form-group full"><label class="form-label">项目描述</label><textarea id="project" class="form-textarea">品牌推广，10万+粉丝，AIGC 3倍产出</textarea></div>
-        </div>
-        <div class="form-section">
-          <div class="form-section-title">工作经历</div>
-          <div class="form-group full"><label class="form-label">工作经历</label><textarea id="work" class="form-textarea"></textarea></div>
-        </div>
-      \`
-    };
-    
+    // Job names
     const jobNames = {
       '01': 'Agent开发工程师', '02': 'AI产品经理', '03': 'AI算法工程师',
       '04': '垂类落地工程师', '05': '前端工程师', '06': '后端工程师',
       '07': 'AI运营', '08': '数据标注员', '09': 'AI安全专家',
       '10': '售前顾问', '11': '市场品牌'
     };
-    
+
+    // Icons
+    const jobIcons = {
+      '01': '🤖', '02': '🎯', '03': '🧠', '04': '⚡',
+      '05': '🎨', '06': '⚙️', '07': '📊', '08': '🏷️',
+      '09': '🔒', '10': '💼', '11': '📢'
+    };
+
     let currentTemplate = '01';
-    
-    function renderTemplateList() {
-      const list = document.getElementById('templateList');
-      list.innerHTML = templates.map(t => `
-        <div class="template-item ${t.id === currentTemplate ? 'active' : ''}" onclick="selectTemplate('${t.id}')">
-          <div class="template-icon">${t.icon}</div>
-          <div class="template-info">
-            <div class="template-name">${t.name}</div>
-          </div>
-        </div>
-      `).join('');
-    }
-    
-    function selectTemplate(id) {
-      currentTemplate = id;
-      renderTemplateList();
-      loadForm(id);
-      renderPreview();
-    }
-    
-    function loadForm(id) {
-      const form = document.getElementById('editorForm');
-      form.innerHTML = formTemplates[id] || formTemplates['default'];
-      
-      // Add event listeners
-      form.querySelectorAll('input, textarea').forEach(el => {
-        el.addEventListener('input', renderPreview);
-      });
-      
-      // Load saved data
-      const saved = localStorage.getItem('resume_' + id);
-      if (saved) {
-        const data = JSON.parse(saved);
-        Object.keys(data).forEach(key => {
-          const el = form.querySelector('#' + key);
-          if (el) el.value = data[key];
-        });
+    let presets = {};
+
+    // Load presets.json
+    async function loadPresets() {
+      try {
+        const res = await fetch('presets.json');
+        presets = await res.json();
+        renderTemplateList();
+        loadTemplate('01');
+      } catch (e) {
+        console.error('Failed to load presets:', e);
+        // Fallback: show error
+        document.getElementById('templateList').innerHTML = '<p style="color:var(--muted);padding:20px;">数据加载失败</p>';
       }
     }
-    
-    function getVal(id) {
-      return document.getElementById(id)?.value || '';
+
+    // Render sidebar
+    function renderTemplateList() {
+      const list = document.getElementById('templateList');
+      list.innerHTML = Object.entries(jobNames).map(([id, name]) => `
+        <button class="template-item ${id === currentTemplate ? 'active' : ''}" onclick="loadTemplate('${id}')">
+          <span class="template-icon">${jobIcons[id]}</span>
+          <span>${name}</span>
+        </button>
+      `).join('');
     }
-    
+
+    // Load template
+    function loadTemplate(id) {
+      currentTemplate = id;
+      renderTemplateList();
+      renderForm();
+      renderPreview();
+      saveToStorage();
+    }
+
+    // Render form
+    function renderForm() {
+      const data = presets[currentTemplate] || {};
+      document.getElementById('formContent').innerHTML = `
+        <div class="form-section">
+          <div class="form-section-title">基本信息</div>
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label">姓名</label>
+              <input type="text" id="name" class="form-input" value="${data.name || ''}" placeholder="输入姓名">
+            </div>
+            <div class="form-group">
+              <label class="form-label">城市</label>
+              <input type="text" id="city" class="form-input" value="${data.city || ''}" placeholder="城市">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label">工作年限</label>
+              <input type="text" id="experience" class="form-input" value="${data.experience || ''}" placeholder="X年">
+            </div>
+            <div class="form-group">
+              <label class="form-label">期望薪资</label>
+              <input type="text" id="salary" class="form-input" value="${data.salary || ''}" placeholder="XX-XXK">
+            </div>
+          </div>
+        </div>
+        <div class="form-section">
+          <div class="form-section-title">简历内容</div>
+          <div class="form-group full">
+            <label class="form-label">个人简介</label>
+            <textarea id="summary" class="form-textarea" placeholder="个人简介">${data.summary || ''}</textarea>
+          </div>
+          <div class="form-group full">
+            <label class="form-label">核心技能（逗号分隔）</label>
+            <input type="text" id="skills" class="form-input" value="${data.skills || ''}" placeholder="技能1, 技能2, ...">
+          </div>
+        </div>
+        <div class="form-section">
+          <div class="form-section-title">项目经历</div>
+          <div class="form-group full">
+            <label class="form-label">项目描述</label>
+            <textarea id="project" class="form-textarea" placeholder="项目经历">${data.project || ''}</textarea>
+          </div>
+        </div>
+        <div class="form-section">
+          <div class="form-section-title">工作经历</div>
+          <div class="form-group full">
+            <label class="form-label">工作经历</label>
+            <textarea id="work" class="form-textarea" placeholder="工作经历">${data.work || ''}</textarea>
+          </div>
+        </div>
+      `;
+
+      // Add auto-save listeners
+      document.querySelectorAll('#editorForm input, #editorForm textarea').forEach(el => {
+        el.addEventListener('input', () => {
+          renderPreview();
+          saveToStorage();
+        });
+      });
+    }
+
+    // Render preview
     function renderPreview() {
       const paper = document.getElementById('resumePaper');
       const name = getVal('name') || 'Your Name';
@@ -761,8 +227,8 @@
       const summary = getVal('summary') || '个人简介...';
       const skills = getVal('skills').split(',').map(s => s.trim()).filter(Boolean);
       const project = getVal('project') || '项目经历...';
-      const work = getVal('work') || '工作经历...';
-      
+      const work = getVal('work') || '';
+
       paper.innerHTML = `
         <div class="resume-name">${name}</div>
         <div class="resume-target">${job}</div>
@@ -771,44 +237,69 @@
           <span>💼 ${exp}</span>
           <span>💰 ${salary}</span>
         </div>
-
         <div class="resume-section">
           <div class="resume-section-title">个人简介</div>
           <p class="resume-text">${summary}</p>
         </div>
-
-        ${skills.length ? '<div class="resume-section"><div class="resume-section-title">核心技能</div><div class="resume-skills">' + skills.map(s => '<span class="skill-tag">' + s + '</span>').join('') + '</div></div>' : ''}
-
+        ${skills.length ? `
+        <div class="resume-section">
+          <div class="resume-section-title">核心技能</div>
+          <div class="resume-skills">${skills.map(s => `<span class="skill-tag">${s}</span>`).join('')}</div>
+        </div>` : ''}
         <div class="resume-section">
           <div class="resume-section-title">项目经历</div>
           <div class="resume-item">
             <div class="resume-item-desc">${project}</div>
           </div>
         </div>
-
-        ${getVal('work') ? '<div class="resume-section"><div class="resume-section-title">工作经历</div><div class="resume-item"><div class="resume-item-desc">' + getVal('work') + '</div></div></div>' : ''}
+        ${work ? `
+        <div class="resume-section">
+          <div class="resume-section-title">工作经历</div>
+          <div class="resume-item">
+            <div class="resume-item-desc">${work}</div>
+          </div>
+        </div>` : ''}
       `;
-      
-      // Auto-save
+    }
+
+    // Get value helper
+    function getVal(id) {
+      const el = document.getElementById(id);
+      return el ? el.value : '';
+    }
+
+    // Save/Load from localStorage
+    function saveToStorage() {
       const data = {};
-      document.getElementById('editorForm').querySelectorAll('input, textarea').forEach(el => {
+      document.querySelectorAll('#editorForm input, #editorForm textarea').forEach(el => {
         if (el.id) data[el.id] = el.value;
       });
       localStorage.setItem('resume_' + currentTemplate, JSON.stringify(data));
     }
-    
+
+    function loadFromStorage() {
+      try {
+        const saved = JSON.parse(localStorage.getItem('resume_' + currentTemplate) || '{}');
+        Object.keys(saved).forEach(id => {
+          const el = document.getElementById(id);
+          if (el) el.value = saved[id];
+        });
+      } catch (e) {}
+    }
+
     function resetForm() {
-      if (confirm('确定要重置当前简历吗？')) {
+      if (confirm('确定要重置吗？')) {
         localStorage.removeItem('resume_' + currentTemplate);
-        loadForm(currentTemplate);
-        renderPreview();
+        loadTemplate(currentTemplate);
       }
     }
-    
+
+    function exportResume() {
+      alert('导出功能开发中...');
+    }
+
     // Init
-    renderTemplateList();
-    loadForm('01');
-    renderPreview();
+    loadPresets();
   </script>
 </body>
 </html>

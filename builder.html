@@ -100,8 +100,6 @@
     </aside>
   </main>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
   <script>
     // Job names
     const jobNames = {
@@ -297,20 +295,25 @@
     }
 
     function exportResume() {
-      const { jsPDF } = window.jspdf;
-      const paper = document.getElementById('resumePaper');
-      html2canvas(paper, { scale: 2, useCORS: true }).then(canvas => {
-        const imgData = canvas.toDataURL('image/png');
-        const pdf = new jsPDF('p', 'mm', 'a4');
-        const pw = 210, ph = 297;
-        const imgW = pw - 20, imgH = (canvas.height * imgW) / canvas.width;
-        pdf.addImage(imgData, 'PNG', 10, 10, imgW, imgH);
-        const name = document.getElementById('name').value || 'resume';
-        pdf.save(name + '.pdf');
-      }).catch(err => {
-        console.error('Export failed:', err);
-        alert('导出失败，请重试');
-      });
+      const name = getVal('name') || '未填写';
+      const job = jobNames[currentTemplate] || '目标岗位';
+      const city = getVal('city') || '未填写';
+      const exp = getVal('experience') || '未填写';
+      const salary = getVal('salary') || '未填写';
+      const summary = getVal('summary') || '未填写';
+      const skills = getVal('skills') || '未填写';
+      const project = getVal('project') || '未填写';
+      const work = getVal('work') || '';
+
+      const md = `# ${name}\n**${job}** | 📍 ${city} | 💼 ${exp} | 💰 ${salary}\n\n---\n\n## 个人简介\n${summary}\n\n## 核心技能\n${skills}\n\n## 项目经历\n${project}\n${work ? '\n## 工作经历\n' + work : ''}`;
+
+      const blob = new Blob([md], { type: 'text/markdown;charset=utf-8' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = name + '_简历.md';
+      a.click();
+      URL.revokeObjectURL(url);
     }
 
     // Init

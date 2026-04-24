@@ -415,22 +415,22 @@
         <div class="form-section">
           <div class="form-section-title">基本信息</div>
           <div class="form-row">
-            <div class="form-group"><label class="form-label">姓名</label><input type="text" id="name" class="form-input"value="王明"value="张算法"value="刘落地"value="赵前端"value="陈建国"value="刘芳"value="王小梅"value="赵安全"value="周销售"value="林品牌" placeholder="张三" value="李明轩"></div>
-            <div class="form-group"><label class="form-label">城市</label><input type="text" id="city" class="form-input"value="北京"value="深圳"value="杭州"value="上海"value="深圳"value="杭州"value="成都"value="北京"value="上海"value="北京" placeholder="北京" value="北京"></div>
+            <div class="form-group"><label class="form-label">姓名</label><input type="text" id="name" class="form-input" placeholder="张三" value="李明轩"></div>
+            <div class="form-group"><label class="form-label">城市</label><input type="text" id="city" class="form-input" placeholder="北京" value="北京"></div>
           </div>
           <div class="form-row">
-            <div class="form-group"><label class="form-label">工作年限</label><input type="text" id="experience" class="form-input"value="3年"value="4年"value="3年"value="2年"value="4年"value="2年"value="1年"value="3年"value="5年"value="3年" placeholder="3年" value="3年"></div>
-            <div class="form-group"><label class="form-label">期望薪资</label><input type="text" id="salary" class="form-input"value="30-45K"value="45-70K"value="35-55K"value="25-40K"value="40-60K"value="20-30K"value="10-18K"value="35-55K"value="30-50K+提成"value="25-40K" placeholder="30-50K" value="45-65K"></div>
+            <div class="form-group"><label class="form-label">工作年限</label><input type="text" id="experience" class="form-input" placeholder="3年" value="3年"></div>
+            <div class="form-group"><label class="form-label">期望薪资</label><input type="text" id="salary" class="form-input" placeholder="30-50K" value="45-65K"></div>
           </div>
         </div>
         <div class="form-section">
           <div class="form-section-title">简历内容</div>
-          <div class="form-group full"><label class="form-label">个人简介</label><textarea id="summary" class="form-textarea" placeholder="5年AI开发经验，精通LangChain、LlamaIndex等Agent开发框架...">AI产品品牌推广：0-1搭建品牌内容体系</textarea></div>
-          <div class="form-group full"><label class="form-label">核心技术栈（逗号分隔）</label><input type="text" id="skills" class="form-input"value="需求分析与PRD撰写, 数据分析, 竞品分析, 原型设计, A/B测试, LLM原理, Prompt工程, RAG架构"value="Python, PyTorch, TensorFlow, 深度学习, NLP, CV, Transformer, 模型部署"value="Python, LangChain, RAG, Milvus, FastAPI, 行业API对接"value="React, Vue, TypeScript, SSE/WebSocket, Prompt模板管理, LLM API集成, Streaming"value="Python, Go, FastAPI, vLLM, Milvus, Redis, Docker, K8s, gRPC"value="SQL, A/B测试, ChatGPT, Midjourney, 内容策划, Prompt优化, 数据分析"value="数据标注, 标注工具, 质量控制, QA审核, NLP标注规范, CV标注"value="AI安全对齐, Prompt注入防御, Guardrails, 红队测试, LLM漏洞评估"value="AI解决方案, 技术演讲, 需求分析, POC演示, 招投标, 客户培训"value="AI品牌营销, 社交媒体运营, AIGC内容生产, KOL合作, 品牌策划" placeholder="Python, LangChain, LlamaIndex, Docker, Kubernetes, Redis" value="Python, LangChain, LangGraph, LlamaIndex, FastAPI, Milvus, Docker, Kubernetes, Redis, Kafka, gRPC, RAG, ReAct, Tool Calling, Multi-Agent, MCP, A2A"></div>
+          <div class="form-group full"><label class="form-label">个人简介</label><textarea id="summary" class="form-textarea" placeholder="5年AI开发经验，精通LangChain、LlamaIndex等Agent开发框架...">3年AI Agent开发经验，精通LangChain、LangGraph、LlamaIndex等主流Agent开发框架，熟悉ReAct、Plan-and-Execute、Tool Calling等多种Agent工作模式。具备完整的企业级Agent系统落地能力，涵盖需求抽象、RAG知识库构建、Multi-Agent协作架构设计与生产部署全流程。深度理解LLM能力边界，擅长Prompt工程、RAG评测优化与幻觉控制，具有日均百万级查询的RAG系统设计经验。对Multi-Agent协作架构（MCP/A2A协议）有深入实践，能够主导复杂Agent产品的技术选型与架构设计。</textarea></div>
+          <div class="form-group full"><label class="form-label">核心技术栈（逗号分隔）</label><input type="text" id="skills" class="form-input" placeholder="Python, LangChain, LlamaIndex, Docker, Kubernetes, Redis" value="Python, LangChain, LangGraph, LlamaIndex, FastAPI, Milvus, Docker, Kubernetes, Redis, Kafka, gRPC, RAG, ReAct, Tool Calling, Multi-Agent, MCP, A2A"></div>
         </div>
         <div class="form-section">
           <div class="form-section-title">项目经历</div>
-          <div class="form-group full"><label class="form-label">项目描述</label><textarea id="project" class="form-textarea" placeholder="主导研发企业级Agent系统，实现多工具调用与任务规划...">主导AI对话平台前端开发，实现SSE流式对话、多轮会话管理、Token截断等功能。流式渲染延迟<200ms，支持20+轮上下文。</textarea></div>
+          <div class="form-group full"><label class="form-label">项目描述</label><textarea id="project" class="form-textarea" placeholder="主导研发企业级Agent系统，实现多工具调用与任务规划...">主导研发企业级智能客服Agent系统，采用LangGraph状态机设计ReAct循环，支持CRM查询、订单追踪、退款审批等12个工具的动态调用，日均处理用户咨询10万+，意图识别准确率96%，平均响应时间1.8s。采用Multi-Agent协作架构，分离意图识别Agent、任务执行Agent、回复生成Agent，通过MCP协议实现Agent间高速通信，协作任务完成率达93%。搭建企业知识库RAG pipeline，使用Milvus向量数据库+ElasticSearch混合检索，结合重排序模型，召回率从62%提升至89%，P99延迟优化至320ms。负责Agent效果评测体系搭建，设计Rule-based+LLM-as-Judge双轨评测方案，覆盖200+核心场景用例，推动月度Agent质量评估自动化。</textarea></div>
         </div>
         <div class="form-section">
           <div class="form-section-title">工作经历</div>
@@ -445,44 +445,44 @@
         <div class="form-section">
           <div class="form-section-title">基本信息</div>
           <div class="form-row">
-            <div class="form-group"><label class="form-label">姓名</label><input type="text" id="name" class="form-input"value="王明"value="张算法"value="刘落地"value="赵前端"value="陈建国"value="刘芳"value="王小梅"value="赵安全"value="周销售"value="林品牌" placeholder="王明</div>
-            <div class="form-group"><label class="form-label">城市</label><input type="text" id="city" class="form-input"value="北京"value="深圳"value="杭州"value="上海"value="深圳"value="杭州"value="成都"value="北京"value="上海"value="北京" placeholder="北京</div>
+            <div class="form-group"><label class="form-label">姓名</label><input type="text" id="name" class="form-input" placeholder="王明</div>
+            <div class="form-group"><label class="form-label">城市</label><input type="text" id="city" class="form-input" placeholder="北京</div>
           </div>
           <div class="form-row">
-            <div class="form-group"><label class="form-label">工作年限</label><input type="text" id="experience" class="form-input"value="3年"value="4年"value="3年"value="2年"value="4年"value="2年"value="1年"value="3年"value="5年"value="3年" placeholder="3年</div>
-            <div class="form-group"><label class="form-label">期望薪资</label><input type="text" id="salary" class="form-input"value="30-45K"value="45-70K"value="35-55K"value="25-40K"value="40-60K"value="20-30K"value="10-18K"value="35-55K"value="30-50K+提成"value="25-40K" placeholder="30-45K</div>
+            <div class="form-group"><label class="form-label">工作年限</label><input type="text" id="experience" class="form-input" placeholder="3年</div>
+            <div class="form-group"><label class="form-label">期望薪资</label><input type="text" id="salary" class="form-input" placeholder="30-45K</div>
           </div>
         </div>
         <div class="form-section">
           <div class="form-section-title">简历内容</div>
-          <div class="form-group full"><label class="form-label">个人简介</label><textarea id="summary" class="form-textarea" placeholder="AI产品经理，负责从0到1规划AI产品全生命周期。擅长将AI能力边界转化为用户价值，精通AI产品PRD撰写、A/B测试设计与评估指标制定。成功推动RAG对话助手上线，模型准确率提升32%...">AI产品品牌推广：0-1搭建品牌内容体系</textarea></div>
-          <div class="form-group full"><label class="form-label">核心能力（逗号分隔）</label><input type="text" id="skills" class="form-input"value="需求分析与PRD撰写, 数据分析, 竞品分析, 原型设计, A/B测试, LLM原理, Prompt工程, RAG架构"value="Python, PyTorch, TensorFlow, 深度学习, NLP, CV, Transformer, 模型部署"value="Python, LangChain, RAG, Milvus, FastAPI, 行业API对接"value="React, Vue, TypeScript, SSE/WebSocket, Prompt模板管理, LLM API集成, Streaming"value="Python, Go, FastAPI, vLLM, Milvus, Redis, Docker, K8s, gRPC"value="SQL, A/B测试, ChatGPT, Midjourney, 内容策划, Prompt优化, 数据分析"value="数据标注, 标注工具, 质量控制, QA审核, NLP标注规范, CV标注"value="AI安全对齐, Prompt注入防御, Guardrails, 红队测试, LLM漏洞评估"value="AI解决方案, 技术演讲, 需求分析, POC演示, 招投标, 客户培训"value="AI品牌营销, 社交媒体运营, AIGC内容生产, KOL合作, 品牌策划" placeholder="需求分析与PRD撰写, 数据分析, 竞品分析, 原型设计, A/B测试, LLM原理, Prompt工程, RAG架构, AI评估指标"></div>
+          <div class="form-group full"><label class="form-label">个人简介</label><textarea id="summary" class="form-textarea" placeholder="AI产品经理，负责从0到1规划AI产品全生命周期。擅长将AI能力边界转化为用户价值，精通AI产品PRD撰写、A/B测试设计与评估指标制定。成功推动RAG对话助手上线，模型准确率提升32%..."></textarea></div>
+          <div class="form-group full"><label class="form-label">核心能力（逗号分隔）</label><input type="text" id="skills" class="form-input" placeholder="需求分析与PRD撰写, 数据分析, 竞品分析, 原型设计, A/B测试, LLM原理, Prompt工程, RAG架构, AI评估指标"></div>
         </div>
         <div class="form-section">
           <div class="form-section-title">项目经历</div>
-          <div class="form-group full"><label class="form-label">项目描述</label><textarea id="project" class="form-textarea" placeholder="【智能客服助手 · 0-1上线】\n主导企业级RAG对话助手产品规划，负责需求分析、PRD撰写及产品设计。设计检索策略与评估指标体系（F1/精确率/召回率），对接算法团队推动模型迭代，AI准确率从58%提升至90%。上线后月活用户2万+，满意度提升40%...">主导AI对话平台前端开发，实现SSE流式对话、多轮会话管理、Token截断等功能。流式渲染延迟<200ms，支持20+轮上下文。</textarea></div>
+          <div class="form-group full"><label class="form-label">项目描述</label><textarea id="project" class="form-textarea" placeholder="【智能客服助手 · 0-1上线】\n主导企业级RAG对话助手产品规划，负责需求分析、PRD撰写及产品设计。设计检索策略与评估指标体系（F1/精确率/召回率），对接算法团队推动模型迭代，AI准确率从58%提升至90%。上线后月活用户2万+，满意度提升40%..."></textarea></div>
         </div>
       `,
       '03': `
         <div class="form-section">
           <div class="form-section-title">基本信息</div>
           <div class="form-row">
-            <div class="form-group"><label class="form-label">姓名</label><input type="text" id="name" class="form-input"value="王明"value="张算法"value="刘落地"value="赵前端"value="陈建国"value="刘芳"value="王小梅"value="赵安全"value="周销售"value="林品牌" placeholder="王五"></div>
-            <div class="form-group"><label class="form-label">城市</label><input type="text" id="city" class="form-input"value="北京"value="深圳"value="杭州"value="上海"value="深圳"value="杭州"value="成都"value="北京"value="上海"value="北京" placeholder="北京"></div>
+            <div class="form-group"><label class="form-label">姓名</label><input type="text" id="name" class="form-input" placeholder="王五"></div>
+            <div class="form-group"><label class="form-label">城市</label><input type="text" id="city" class="form-input" placeholder="北京"></div>
           </div>
           <div class="form-row">
-            <div class="form-group"><label class="form-label">工作年限</label><input type="text" id="experience" class="form-input"value="3年"value="4年"value="3年"value="2年"value="4年"value="2年"value="1年"value="3年"value="5年"value="3年" placeholder="3年"></div>
-            <div class="form-group"><label class="form-label">期望薪资</label><input type="text" id="salary" class="form-input"value="30-45K"value="45-70K"value="35-55K"value="25-40K"value="40-60K"value="20-30K"value="10-18K"value="35-55K"value="30-50K+提成"value="25-40K" placeholder="35-55K"></div>
+            <div class="form-group"><label class="form-label">工作年限</label><input type="text" id="experience" class="form-input" placeholder="3年"></div>
+            <div class="form-group"><label class="form-label">期望薪资</label><input type="text" id="salary" class="form-input" placeholder="35-55K"></div>
           </div>
         </div>
         <div class="form-section">
           <div class="form-section-title">简历内容</div>
-          <div class="form-group full"><label class="form-label">个人简介</label><textarea id="summary" class="form-textarea" placeholder="3年AI算法研发经验，专注于深度学习模型训练与优化，精通PyTorch、TensorFlow等主流框架...">AI产品品牌推广：0-1搭建品牌内容体系</textarea></div>
-          <div class="form-group full"><label class="form-label">核心技术栈（逗号分隔）</label><input type="text" id="skills" class="form-input"value="需求分析与PRD撰写, 数据分析, 竞品分析, 原型设计, A/B测试, LLM原理, Prompt工程, RAG架构"value="Python, PyTorch, TensorFlow, 深度学习, NLP, CV, Transformer, 模型部署"value="Python, LangChain, RAG, Milvus, FastAPI, 行业API对接"value="React, Vue, TypeScript, SSE/WebSocket, Prompt模板管理, LLM API集成, Streaming"value="Python, Go, FastAPI, vLLM, Milvus, Redis, Docker, K8s, gRPC"value="SQL, A/B测试, ChatGPT, Midjourney, 内容策划, Prompt优化, 数据分析"value="数据标注, 标注工具, 质量控制, QA审核, NLP标注规范, CV标注"value="AI安全对齐, Prompt注入防御, Guardrails, 红队测试, LLM漏洞评估"value="AI解决方案, 技术演讲, 需求分析, POC演示, 招投标, 客户培训"value="AI品牌营销, 社交媒体运营, AIGC内容生产, KOL合作, 品牌策划" placeholder="Python, PyTorch, TensorFlow, 深度学习, NLP, CV, Transformer, 模型部署"></div>
+          <div class="form-group full"><label class="form-label">个人简介</label><textarea id="summary" class="form-textarea" placeholder="3年AI算法研发经验，专注于深度学习模型训练与优化，精通PyTorch、TensorFlow等主流框架..."></textarea></div>
+          <div class="form-group full"><label class="form-label">核心技术栈（逗号分隔）</label><input type="text" id="skills" class="form-input" value="Python, PyTorch, Transformer, NLP, CV, 模型训练"></div>
         </div>
         <div class="form-section">
           <div class="form-section-title">项目经历</div>
-          <div class="form-group full"><label class="form-label">项目描述</label><textarea id="project" class="form-textarea" placeholder="基于Transformer架构训练对话大模型，涵盖数据清洗、模型预训练、SFT微调流程，在公开数据集上困惑度达到XX...">主导AI对话平台前端开发，实现SSE流式对话、多轮会话管理、Token截断等功能。流式渲染延迟<200ms，支持20+轮上下文。</textarea></div>
+          <div class="form-group full"><label class="form-label">项目描述</label><textarea id="project" class="form-textarea" placeholder="基于Transformer架构训练对话大模型，涵盖数据清洗、模型预训练、SFT微调流程，在公开数据集上困惑度达到XX..."></textarea></div>
         </div>
         <div class="form-section">
           <div class="form-section-title">工作经历</div>
@@ -493,27 +493,27 @@
         <div class="form-section">
           <div class="form-section-title">基本信息</div>
           <div class="form-row">
-            <div class="form-group"><label class="form-label">姓名</label><input type="text" id="name" class="form-input"value="王明"value="张算法"value="刘落地"value="赵前端"value="陈建国"value="刘芳"value="王小梅"value="赵安全"value="周销售"value="林品牌" placeholder="王五"></div>
-            <div class="form-group"><label class="form-label">城市</label><input type="text" id="city" class="form-input"value="北京"value="深圳"value="杭州"value="上海"value="深圳"value="杭州"value="成都"value="北京"value="上海"value="北京" placeholder="北京"></div>
+            <div class="form-group"><label class="form-label">姓名</label><input type="text" id="name" class="form-input" placeholder="王五"></div>
+            <div class="form-group"><label class="form-label">城市</label><input type="text" id="city" class="form-input" placeholder="北京"></div>
           </div>
           <div class="form-row">
-            <div class="form-group"><label class="form-label">工作年限</label><input type="text" id="experience" class="form-input"value="3年"value="4年"value="3年"value="2年"value="4年"value="2年"value="1年"value="3年"value="5年"value="3年" placeholder="3年"></div>
-            <div class="form-group"><label class="form-label">期望薪资</label><input type="text" id="salary" class="form-input"value="30-45K"value="45-70K"value="35-55K"value="25-40K"value="40-60K"value="20-30K"value="10-18K"value="35-55K"value="30-50K+提成"value="25-40K" placeholder="35-50K"></div>
+            <div class="form-group"><label class="form-label">工作年限</label><input type="text" id="experience" class="form-input" placeholder="3年"></div>
+            <div class="form-group"><label class="form-label">期望薪资</label><input type="text" id="salary" class="form-input" placeholder="35-50K"></div>
           </div>
         </div>
         <div class="form-section">
           <div class="form-section-title">行业方向</div>
-          <div class="form-group full"><label class="form-label">目标行业</label><input type="text" id="industry" class="form-input"value="医疗" placeholder="医疗 / 金融 / 教育 / 制造"></div>
-          <div class="form-group full"><label class="form-label">个人简介</label><textarea id="summary" class="form-textarea" placeholder="深耕[行业]领域AI落地，精通RAG架构设计与行业知识库搭建...">AI产品品牌推广：0-1搭建品牌内容体系</textarea></div>
+          <div class="form-group full"><label class="form-label">目标行业</label><input type="text" id="industry" class="form-input" placeholder="医疗 / 金融 / 教育 / 制造"></div>
+          <div class="form-group full"><label class="form-label">个人简介</label><textarea id="summary" class="form-textarea" >深耕医疗AI落地，精通RAG架构设计与医疗知识库搭建</textarea>></textarea></div>
         </div>
         <div class="form-section">
           <div class="form-section-title">核心技术栈</div>
-          <div class="form-group full"><label class="form-label">技术能力（逗号分隔）</label><input type="text" id="skills" class="form-input"value="需求分析与PRD撰写, 数据分析, 竞品分析, 原型设计, A/B测试, LLM原理, Prompt工程, RAG架构"value="Python, PyTorch, TensorFlow, 深度学习, NLP, CV, Transformer, 模型部署"value="Python, LangChain, RAG, Milvus, FastAPI, 行业API对接"value="React, Vue, TypeScript, SSE/WebSocket, Prompt模板管理, LLM API集成, Streaming"value="Python, Go, FastAPI, vLLM, Milvus, Redis, Docker, K8s, gRPC"value="SQL, A/B测试, ChatGPT, Midjourney, 内容策划, Prompt优化, 数据分析"value="数据标注, 标注工具, 质量控制, QA审核, NLP标注规范, CV标注"value="AI安全对齐, Prompt注入防御, Guardrails, 红队测试, LLM漏洞评估"value="AI解决方案, 技术演讲, 需求分析, POC演示, 招投标, 客户培训"value="AI品牌营销, 社交媒体运营, AIGC内容生产, KOL合作, 品牌策划" placeholder="Python, LangChain, RAG, Milvus, FastAPI, 行业API对接"></div>
+          <div class="form-group full"><label class="form-label">技术能力（逗号分隔）</label><input type="text" id="skills" class="form-input" value="Python, LangChain, RAG, Milvus, FastAPI"></div>
           <div class="form-group full"><label class="form-label">行业知识（逗号分隔）</label><input type="text" id="industrySkills" class="form-input" placeholder="行业业务流程, 行业数据特征, 行业术语体系"></div>
         </div>
         <div class="form-section">
           <div class="form-section-title">项目经历</div>
-          <div class="form-group full"><label class="form-label">行业RAG项目描述</label><textarea id="project" class="form-textarea" placeholder="为[行业]客户搭建RAG知识库系统，对接现有IT系统，实现[具体业务目标]...">主导AI对话平台前端开发，实现SSE流式对话、多轮会话管理、Token截断等功能。流式渲染延迟<200ms，支持20+轮上下文。</textarea></div>
+          <div class="form-group full"><label class="form-label">行业RAG项目描述</label><textarea id="project" class="form-textarea" >医疗RAG系统，对接HIS系统，病历智能检索，日均5000+查询，召回率85%+</textarea>></textarea></div>
           <div class="form-group full"><label class="form-label">项目成果（逗号分隔）</label><input type="text" id="projectResult" class="form-input" placeholder="知识库规模XX份文档, 召回率提升至XX%, 落地XX个行业客户"></div>
         </div>
         <div class="form-section">
@@ -525,23 +525,23 @@
         <div class="form-section">
           <div class="form-section-title">基本信息</div>
           <div class="form-row">
-            <div class="form-group"><label class="form-label">姓名</label><input type="text" id="name" class="form-input"value="王明"value="张算法"value="刘落地"value="赵前端"value="陈建国"value="刘芳"value="王小梅"value="赵安全"value="周销售"value="林品牌" placeholder="赵六"></div>
-            <div class="form-group"><label class="form-label">城市</label><input type="text" id="city" class="form-input"value="北京"value="深圳"value="杭州"value="上海"value="深圳"value="杭州"value="成都"value="北京"value="上海"value="北京" placeholder="深圳"></div>
+            <div class="form-group"><label class="form-label">姓名</label><input type="text" id="name" class="form-input" placeholder="赵六"></div>
+            <div class="form-group"><label class="form-label">城市</label><input type="text" id="city" class="form-input" placeholder="深圳"></div>
           </div>
           <div class="form-row">
-            <div class="form-group"><label class="form-label">工作年限</label><input type="text" id="experience" class="form-input"value="3年"value="4年"value="3年"value="2年"value="4年"value="2年"value="1年"value="3年"value="5年"value="3年" placeholder="2年"></div>
-            <div class="form-group"><label class="form-label">期望薪资</label><input type="text" id="salary" class="form-input"value="30-45K"value="45-70K"value="35-55K"value="25-40K"value="40-60K"value="20-30K"value="10-18K"value="35-55K"value="30-50K+提成"value="25-40K" placeholder="25-40K"></div>
+            <div class="form-group"><label class="form-label">工作年限</label><input type="text" id="experience" class="form-input" placeholder="2年"></div>
+            <div class="form-group"><label class="form-label">期望薪资</label><input type="text" id="salary" class="form-input" placeholder="25-40K"></div>
           </div>
         </div>
         <div class="form-section">
           <div class="form-section-title">简历内容</div>
-          <div class="form-group full"><label class="form-label">个人简介</label><textarea id="summary" class="form-textarea" placeholder="专注AI产品前端开发，精通LLM流式输出渲染与多轮会话状态管理...">AI产品品牌推广：0-1搭建品牌内容体系</textarea></div>
-          <div class="form-group full"><label class="form-label">前端基础（逗号分隔）</label><input type="text" id="skills" class="form-input"value="需求分析与PRD撰写, 数据分析, 竞品分析, 原型设计, A/B测试, LLM原理, Prompt工程, RAG架构"value="Python, PyTorch, TensorFlow, 深度学习, NLP, CV, Transformer, 模型部署"value="Python, LangChain, RAG, Milvus, FastAPI, 行业API对接"value="React, Vue, TypeScript, SSE/WebSocket, Prompt模板管理, LLM API集成, Streaming"value="Python, Go, FastAPI, vLLM, Milvus, Redis, Docker, K8s, gRPC"value="SQL, A/B测试, ChatGPT, Midjourney, 内容策划, Prompt优化, 数据分析"value="数据标注, 标注工具, 质量控制, QA审核, NLP标注规范, CV标注"value="AI安全对齐, Prompt注入防御, Guardrails, 红队测试, LLM漏洞评估"value="AI解决方案, 技术演讲, 需求分析, POC演示, 招投标, 客户培训"value="AI品牌营销, 社交媒体运营, AIGC内容生产, KOL合作, 品牌策划" placeholder="React/Vue, TypeScript, SSE/WebSocket, Zustand/Redux"></div>
+          <div class="form-group full"><label class="form-label">个人简介</label><textarea id="summary" class="form-textarea" >AI前端开发，LLM流式输出，多轮会话管理</textarea>></textarea></div>
+          <div class="form-group full"><label class="form-label">前端基础（逗号分隔）</label><input type="text" id="skills" class="form-input" value="React, Vue, TypeScript, SSE, LLM API"></div>
           <div class="form-group full"><label class="form-label">AI专项（逗号分隔）</label><input type="text" id="aiSkills" class="form-input" placeholder="LLM API集成, Streaming渲染, Prompt模板管理, Token计数"></div>
         </div>
         <div class="form-section">
           <div class="form-section-title">项目经历</div>
-          <div class="form-group full"><label class="form-label">项目描述</label><textarea id="project" class="form-textarea" placeholder="主导[产品名]前端开发，实现SSE流式对话、多轮会话管理、Token截断等功能...">主导AI对话平台前端开发，实现SSE流式对话、多轮会话管理、Token截断等功能。流式渲染延迟<200ms，支持20+轮上下文。</textarea></div>
+          <div class="form-group full"><label class="form-label">项目描述</label><textarea id="project" class="form-textarea" >AI对话平台前端，SSE流式，20+轮上下文，延迟200ms</textarea>></textarea></div>
           <div class="form-group full"><label class="form-label">项目成果（逗号分隔）</label><input type="text" id="projectResult" class="form-input" placeholder="流式渲染延迟降低XX%, 支持XX轮上下文, 支持XX家模型接入"></div>
         </div>
         <div class="form-section">
@@ -553,126 +553,126 @@
         <div class="form-section">
           <div class="form-section-title">基本信息</div>
           <div class="form-row">
-            <div class="form-group"><label class="form-label">姓名</label><input type="text" id="name" class="form-input"value="王明"value="张算法"value="刘落地"value="赵前端"value="陈建国"value="刘芳"value="王小梅"value="赵安全"value="周销售"value="林品牌" placeholder="陈建国"></div>
-            <div class="form-group"><label class="form-label">城市</label><input type="text" id="city" class="form-input"value="北京"value="深圳"value="杭州"value="上海"value="深圳"value="杭州"value="成都"value="北京"value="上海"value="北京" placeholder="深圳"></div>
+            <div class="form-group"><label class="form-label">姓名</label><input type="text" id="name" class="form-input" placeholder="陈建国"></div>
+            <div class="form-group"><label class="form-label">城市</label><input type="text" id="city" class="form-input" placeholder="深圳"></div>
           </div>
           <div class="form-row">
-            <div class="form-group"><label class="form-label">工作年限</label><input type="text" id="experience" class="form-input"value="3年"value="4年"value="3年"value="2年"value="4年"value="2年"value="1年"value="3年"value="5年"value="3年" placeholder="4年"></div>
-            <div class="form-group"><label class="form-label">期望薪资</label><input type="text" id="salary" class="form-input"value="30-45K"value="45-70K"value="35-55K"value="25-40K"value="40-60K"value="20-30K"value="10-18K"value="35-55K"value="30-50K+提成"value="25-40K" placeholder="40-60K"></div>
+            <div class="form-group"><label class="form-label">工作年限</label><input type="text" id="experience" class="form-input" placeholder="4年"></div>
+            <div class="form-group"><label class="form-label">期望薪资</label><input type="text" id="salary" class="form-input" placeholder="40-60K"></div>
           </div>
         </div>
         <div class="form-section">
           <div class="form-section-title">后端AI技能</div>
-          <div class="form-group full"><label class="form-label">核心技术栈（逗号分隔）</label><input type="text" id="skills" class="form-input"value="需求分析与PRD撰写, 数据分析, 竞品分析, 原型设计, A/B测试, LLM原理, Prompt工程, RAG架构"value="Python, PyTorch, TensorFlow, 深度学习, NLP, CV, Transformer, 模型部署"value="Python, LangChain, RAG, Milvus, FastAPI, 行业API对接"value="React, Vue, TypeScript, SSE/WebSocket, Prompt模板管理, LLM API集成, Streaming"value="Python, Go, FastAPI, vLLM, Milvus, Redis, Docker, K8s, gRPC"value="SQL, A/B测试, ChatGPT, Midjourney, 内容策划, Prompt优化, 数据分析"value="数据标注, 标注工具, 质量控制, QA审核, NLP标注规范, CV标注"value="AI安全对齐, Prompt注入防御, Guardrails, 红队测试, LLM漏洞评估"value="AI解决方案, 技术演讲, 需求分析, POC演示, 招投标, 客户培训"value="AI品牌营销, 社交媒体运营, AIGC内容生产, KOL合作, 品牌策划" placeholder="Python, Go, FastAPI, vLLM, Milvus, Redis, Docker, K8s"></div>
+          <div class="form-group full"><label class="form-label">核心技术栈（逗号分隔）</label><input type="text" id="skills" class="form-input" placeholder="Python, Go, FastAPI, vLLM, Milvus, Redis, Docker, K8s"></div>
         </div>
         <div class="form-section">
           <div class="form-section-title">项目经历</div>
-          <div class="form-group full"><label class="form-label">AI后端项目</label><textarea id="project" class="form-textarea" placeholder="LLM服务化平台：vLLM推理优化(吞吐量提升3倍)、Milvus向量库(支持1000+并发)、RAG管道(召回率>主导AI对话平台前端开发，实现SSE流式对话、多轮会话管理、Token截断等功能。流式渲染延迟<200ms，支持20+轮上下文。</textarea></div>
+          <div class="form-group full"><label class="form-label">AI后端项目</label><textarea id="project" class="form-textarea" >LLM服务化平台，vLLM推理3倍，Milvus 1000+并发，RAG召回率85%+</textarea>></textarea></div>
         </div>
       `,
       '07': `
         <div class="form-section">
           <div class="form-section-title">基本信息</div>
           <div class="form-row">
-            <div class="form-group"><label class="form-label">姓名</label><input type="text" id="name" class="form-input"value="王明"value="张算法"value="刘落地"value="赵前端"value="陈建国"value="刘芳"value="王小梅"value="赵安全"value="周销售"value="林品牌" placeholder="刘芳"></div>
-            <div class="form-group"><label class="form-label">城市</label><input type="text" id="city" class="form-input"value="北京"value="深圳"value="杭州"value="上海"value="深圳"value="杭州"value="成都"value="北京"value="上海"value="北京" placeholder="杭州"></div>
+            <div class="form-group"><label class="form-label">姓名</label><input type="text" id="name" class="form-input" placeholder="刘芳"></div>
+            <div class="form-group"><label class="form-label">城市</label><input type="text" id="city" class="form-input" placeholder="杭州"></div>
           </div>
           <div class="form-row">
-            <div class="form-group"><label class="form-label">工作年限</label><input type="text" id="experience" class="form-input"value="3年"value="4年"value="3年"value="2年"value="4年"value="2年"value="1年"value="3年"value="5年"value="3年" placeholder="2年"></div>
-            <div class="form-group"><label class="form-label">期望薪资</label><input type="text" id="salary" class="form-input"value="30-45K"value="45-70K"value="35-55K"value="25-40K"value="40-60K"value="20-30K"value="10-18K"value="35-55K"value="30-50K+提成"value="25-40K" placeholder="20-30K"></div>
+            <div class="form-group"><label class="form-label">工作年限</label><input type="text" id="experience" class="form-input" placeholder="2年"></div>
+            <div class="form-group"><label class="form-label">期望薪资</label><input type="text" id="salary" class="form-input" placeholder="20-30K"></div>
           </div>
         </div>
         <div class="form-section">
           <div class="form-section-title">运营技能</div>
-          <div class="form-group full"><label class="form-label">核心能力（逗号分隔）</label><input type="text" id="skills" class="form-input"value="需求分析与PRD撰写, 数据分析, 竞品分析, 原型设计, A/B测试, LLM原理, Prompt工程, RAG架构"value="Python, PyTorch, TensorFlow, 深度学习, NLP, CV, Transformer, 模型部署"value="Python, LangChain, RAG, Milvus, FastAPI, 行业API对接"value="React, Vue, TypeScript, SSE/WebSocket, Prompt模板管理, LLM API集成, Streaming"value="Python, Go, FastAPI, vLLM, Milvus, Redis, Docker, K8s, gRPC"value="SQL, A/B测试, ChatGPT, Midjourney, 内容策划, Prompt优化, 数据分析"value="数据标注, 标注工具, 质量控制, QA审核, NLP标注规范, CV标注"value="AI安全对齐, Prompt注入防御, Guardrails, 红队测试, LLM漏洞评估"value="AI解决方案, 技术演讲, 需求分析, POC演示, 招投标, 客户培训"value="AI品牌营销, 社交媒体运营, AIGC内容生产, KOL合作, 品牌策划" placeholder="SQL, A/B测试, ChatGPT, Midjourney, 内容策划, Prompt优化"></div>
+          <div class="form-group full"><label class="form-label">核心能力（逗号分隔）</label><input type="text" id="skills" class="form-input" value="SQL, A/B测试, ChatGPT, Midjourney, 内容策划"></div>
         </div>
         <div class="form-section">
           <div class="form-section-title">项目经历</div>
-          <div class="form-group full"><label class="form-label">AIGC运营项目</label><textarea id="project" class="form-textarea" placeholder="AIGC内容生产SOP：效率提升200%，月产出500篇；Prompt模板50+个，覆盖80%内容需求...">主导AI对话平台前端开发，实现SSE流式对话、多轮会话管理、Token截断等功能。流式渲染延迟<200ms，支持20+轮上下文。</textarea></div>
+          <div class="form-group full"><label class="form-label">AIGC运营项目</label><textarea id="project" class="form-textarea" >AIGC内容SOP，5000+篇生成，效率200%+</textarea>></textarea></div>
         </div>
       `,
       '08': `
         <div class="form-section">
           <div class="form-section-title">基本信息</div>
           <div class="form-row">
-            <div class="form-group"><label class="form-label">姓名</label><input type="text" id="name" class="form-input"value="王明"value="张算法"value="刘落地"value="赵前端"value="陈建国"value="刘芳"value="王小梅"value="赵安全"value="周销售"value="林品牌" placeholder="王小梅"></div>
-            <div class="form-group"><label class="form-label">城市</label><input type="text" id="city" class="form-input"value="北京"value="深圳"value="杭州"value="上海"value="深圳"value="杭州"value="成都"value="北京"value="上海"value="北京" placeholder="成都"></div>
+            <div class="form-group"><label class="form-label">姓名</label><input type="text" id="name" class="form-input" placeholder="王小梅"></div>
+            <div class="form-group"><label class="form-label">城市</label><input type="text" id="city" class="form-input" placeholder="成都"></div>
           </div>
           <div class="form-row">
-            <div class="form-group"><label class="form-label">工作年限</label><input type="text" id="experience" class="form-input"value="3年"value="4年"value="3年"value="2年"value="4年"value="2年"value="1年"value="3年"value="5年"value="3年" placeholder="1年"></div>
-            <div class="form-group"><label class="form-label">期望薪资</label><input type="text" id="salary" class="form-input"value="30-45K"value="45-70K"value="35-55K"value="25-40K"value="40-60K"value="20-30K"value="10-18K"value="35-55K"value="30-50K+提成"value="25-40K" placeholder="10-18K"></div>
+            <div class="form-group"><label class="form-label">工作年限</label><input type="text" id="experience" class="form-input" placeholder="1年"></div>
+            <div class="form-group"><label class="form-label">期望薪资</label><input type="text" id="salary" class="form-input" placeholder="10-18K"></div>
           </div>
         </div>
         <div class="form-section">
           <div class="form-section-title">标注技能</div>
-          <div class="form-group full"><label class="form-label">核心能力（逗号分隔）</label><input type="text" id="skills" class="form-input"value="需求分析与PRD撰写, 数据分析, 竞品分析, 原型设计, A/B测试, LLM原理, Prompt工程, RAG架构"value="Python, PyTorch, TensorFlow, 深度学习, NLP, CV, Transformer, 模型部署"value="Python, LangChain, RAG, Milvus, FastAPI, 行业API对接"value="React, Vue, TypeScript, SSE/WebSocket, Prompt模板管理, LLM API集成, Streaming"value="Python, Go, FastAPI, vLLM, Milvus, Redis, Docker, K8s, gRPC"value="SQL, A/B测试, ChatGPT, Midjourney, 内容策划, Prompt优化, 数据分析"value="数据标注, 标注工具, 质量控制, QA审核, NLP标注规范, CV标注"value="AI安全对齐, Prompt注入防御, Guardrails, 红队测试, LLM漏洞评估"value="AI解决方案, 技术演讲, 需求分析, POC演示, 招投标, 客户培训"value="AI品牌营销, 社交媒体运营, AIGC内容生产, KOL合作, 品牌策划" placeholder="数据标注, 标注工具, 质量控制, QA审核, NLP标注规范"></div>
+          <div class="form-group full"><label class="form-label">核心能力（逗号分隔）</label><input type="text" id="skills" class="form-input" placeholder="数据标注, 标注工具, 质量控制, QA审核, NLP标注规范"></div>
         </div>
         <div class="form-section">
           <div class="form-section-title">项目经历</div>
-          <div class="form-group full"><label class="form-label">标注项目</label><textarea id="project" class="form-textarea" placeholder="LLM微调数据标注：10万+对话数据标注、质量审核、标注规范制定；NLP命名实体标注准确率>主导AI对话平台前端开发，实现SSE流式对话、多轮会话管理、Token截断等功能。流式渲染延迟<200ms，支持20+轮上下文。</textarea></div>
+          <div class="form-group full"><label class="form-label">标注项目</label><textarea id="project" class="form-textarea" >LLM微调标注，10万+对话，制定30+规范，NLP准确率95%+</textarea>></textarea></div>
         </div>
       `,
       '09': `
         <div class="form-section">
           <div class="form-section-title">基本信息</div>
           <div class="form-row">
-            <div class="form-group"><label class="form-label">姓名</label><input type="text" id="name" class="form-input"value="王明"value="张算法"value="刘落地"value="赵前端"value="陈建国"value="刘芳"value="王小梅"value="赵安全"value="周销售"value="林品牌" placeholder="赵安全"></div>
-            <div class="form-group"><label class="form-label">城市</label><input type="text" id="city" class="form-input"value="北京"value="深圳"value="杭州"value="上海"value="深圳"value="杭州"value="成都"value="北京"value="上海"value="北京" placeholder="北京"></div>
+            <div class="form-group"><label class="form-label">姓名</label><input type="text" id="name" class="form-input" placeholder="赵安全"></div>
+            <div class="form-group"><label class="form-label">城市</label><input type="text" id="city" class="form-input" placeholder="北京"></div>
           </div>
           <div class="form-row">
-            <div class="form-group"><label class="form-label">工作年限</label><input type="text" id="experience" class="form-input"value="3年"value="4年"value="3年"value="2年"value="4年"value="2年"value="1年"value="3年"value="5年"value="3年" placeholder="3年"></div>
-            <div class="form-group"><label class="form-label">期望薪资</label><input type="text" id="salary" class="form-input"value="30-45K"value="45-70K"value="35-55K"value="25-40K"value="40-60K"value="20-30K"value="10-18K"value="35-55K"value="30-50K+提成"value="25-40K" placeholder="35-55K"></div>
+            <div class="form-group"><label class="form-label">工作年限</label><input type="text" id="experience" class="form-input" placeholder="3年"></div>
+            <div class="form-group"><label class="form-label">期望薪资</label><input type="text" id="salary" class="form-input" placeholder="35-55K"></div>
           </div>
         </div>
         <div class="form-section">
           <div class="form-section-title">安全技能</div>
-          <div class="form-group full"><label class="form-label">核心能力（逗号分隔）</label><input type="text" id="skills" class="form-input"value="需求分析与PRD撰写, 数据分析, 竞品分析, 原型设计, A/B测试, LLM原理, Prompt工程, RAG架构"value="Python, PyTorch, TensorFlow, 深度学习, NLP, CV, Transformer, 模型部署"value="Python, LangChain, RAG, Milvus, FastAPI, 行业API对接"value="React, Vue, TypeScript, SSE/WebSocket, Prompt模板管理, LLM API集成, Streaming"value="Python, Go, FastAPI, vLLM, Milvus, Redis, Docker, K8s, gRPC"value="SQL, A/B测试, ChatGPT, Midjourney, 内容策划, Prompt优化, 数据分析"value="数据标注, 标注工具, 质量控制, QA审核, NLP标注规范, CV标注"value="AI安全对齐, Prompt注入防御, Guardrails, 红队测试, LLM漏洞评估"value="AI解决方案, 技术演讲, 需求分析, POC演示, 招投标, 客户培训"value="AI品牌营销, 社交媒体运营, AIGC内容生产, KOL合作, 品牌策划" placeholder="AI安全对齐, Prompt注入防御, Guardrails, 红队测试, LLM漏洞评估"></div>
+          <div class="form-group full"><label class="form-label">核心能力（逗号分隔）</label><input type="text" id="skills" class="form-input" value="AI安全, Prompt防御, Guardrails, 红队测试"></div>
         </div>
         <div class="form-section">
           <div class="form-section-title">项目经历</div>
-          <div class="form-group full"><label class="form-label">安全项目</label><textarea id="project" class="form-textarea" placeholder="企业级LLM安全评估：Prompt注入防御体系建设、Guardrails规则库100+条、安全评测用例1000+...">主导AI对话平台前端开发，实现SSE流式对话、多轮会话管理、Token截断等功能。流式渲染延迟<200ms，支持20+轮上下文。</textarea></div>
+          <div class="form-group full"><label class="form-label">安全项目</label><textarea id="project" class="form-textarea" placeholder="企业级LLM安全评估：Prompt注入防御体系建设、Guardrails规则库100+条、安全评测用例1000+..."></textarea></div>
         </div>
       `,
       '10': `
         <div class="form-section">
           <div class="form-section-title">基本信息</div>
           <div class="form-row">
-            <div class="form-group"><label class="form-label">姓名</label><input type="text" id="name" class="form-input"value="王明"value="张算法"value="刘落地"value="赵前端"value="陈建国"value="刘芳"value="王小梅"value="赵安全"value="周销售"value="林品牌" placeholder="周销售"></div>
-            <div class="form-group"><label class="form-label">城市</label><input type="text" id="city" class="form-input"value="北京"value="深圳"value="杭州"value="上海"value="深圳"value="杭州"value="成都"value="北京"value="上海"value="北京" placeholder="上海"></div>
+            <div class="form-group"><label class="form-label">姓名</label><input type="text" id="name" class="form-input" placeholder="周销售"></div>
+            <div class="form-group"><label class="form-label">城市</label><input type="text" id="city" class="form-input" placeholder="上海"></div>
           </div>
           <div class="form-row">
-            <div class="form-group"><label class="form-label">工作年限</label><input type="text" id="experience" class="form-input"value="3年"value="4年"value="3年"value="2年"value="4年"value="2年"value="1年"value="3年"value="5年"value="3年" placeholder="5年"></div>
-            <div class="form-group"><label class="form-label">期望薪资</label><input type="text" id="salary" class="form-input"value="30-45K"value="45-70K"value="35-55K"value="25-40K"value="40-60K"value="20-30K"value="10-18K"value="35-55K"value="30-50K+提成"value="25-40K" placeholder="30-50K"></div>
+            <div class="form-group"><label class="form-label">工作年限</label><input type="text" id="experience" class="form-input" placeholder="5年"></div>
+            <div class="form-group"><label class="form-label">期望薪资</label><input type="text" id="salary" class="form-input" placeholder="30-50K"></div>
           </div>
         </div>
         <div class="form-section">
           <div class="form-section-title">售前技能</div>
-          <div class="form-group full"><label class="form-label">核心能力（逗号分隔）</label><input type="text" id="skills" class="form-input"value="需求分析与PRD撰写, 数据分析, 竞品分析, 原型设计, A/B测试, LLM原理, Prompt工程, RAG架构"value="Python, PyTorch, TensorFlow, 深度学习, NLP, CV, Transformer, 模型部署"value="Python, LangChain, RAG, Milvus, FastAPI, 行业API对接"value="React, Vue, TypeScript, SSE/WebSocket, Prompt模板管理, LLM API集成, Streaming"value="Python, Go, FastAPI, vLLM, Milvus, Redis, Docker, K8s, gRPC"value="SQL, A/B测试, ChatGPT, Midjourney, 内容策划, Prompt优化, 数据分析"value="数据标注, 标注工具, 质量控制, QA审核, NLP标注规范, CV标注"value="AI安全对齐, Prompt注入防御, Guardrails, 红队测试, LLM漏洞评估"value="AI解决方案, 技术演讲, 需求分析, POC演示, 招投标, 客户培训"value="AI品牌营销, 社交媒体运营, AIGC内容生产, KOL合作, 品牌策划" placeholder="AI解决方案, 技术演讲, 需求分析, POC演示, 招投标"></div>
+          <div class="form-group full"><label class="form-label">核心能力（逗号分隔）</label><input type="text" id="skills" class="form-input" placeholder="AI解决方案, 技术演讲, 需求分析, POC演示, 招投标"></div>
         </div>
         <div class="form-section">
           <div class="form-section-title">项目经历</div>
-          <div class="form-group full"><label class="form-label">售前项目</label><textarea id="project" class="form-textarea" placeholder="AI解决方案售前：主导企业AI转型方案20+个、落地POC项目5个、累计签单500万+...">主导AI对话平台前端开发，实现SSE流式对话、多轮会话管理、Token截断等功能。流式渲染延迟<200ms，支持20+轮上下文。</textarea></div>
+          <div class="form-group full"><label class="form-label">售前项目</label><textarea id="project" class="form-textarea" >AI售前，20+方案，8个POC，单项目200万</textarea>></textarea></div>
         </div>
       `,
       '11': `
         <div class="form-section">
           <div class="form-section-title">基本信息</div>
           <div class="form-row">
-            <div class="form-group"><label class="form-label">姓名</label><input type="text" id="name" class="form-input"value="王明"value="张算法"value="刘落地"value="赵前端"value="陈建国"value="刘芳"value="王小梅"value="赵安全"value="周销售"value="林品牌" placeholder="林品牌"></div>
-            <div class="form-group"><label class="form-label">城市</label><input type="text" id="city" class="form-input"value="北京"value="深圳"value="杭州"value="上海"value="深圳"value="杭州"value="成都"value="北京"value="上海"value="北京" placeholder="北京"></div>
+            <div class="form-group"><label class="form-label">姓名</label><input type="text" id="name" class="form-input" placeholder="林品牌"></div>
+            <div class="form-group"><label class="form-label">城市</label><input type="text" id="city" class="form-input" placeholder="北京"></div>
           </div>
           <div class="form-row">
-            <div class="form-group"><label class="form-label">工作年限</label><input type="text" id="experience" class="form-input"value="3年"value="4年"value="3年"value="2年"value="4年"value="2年"value="1年"value="3年"value="5年"value="3年" placeholder="3年"></div>
-            <div class="form-group"><label class="form-label">期望薪资</label><input type="text" id="salary" class="form-input"value="30-45K"value="45-70K"value="35-55K"value="25-40K"value="40-60K"value="20-30K"value="10-18K"value="35-55K"value="30-50K+提成"value="25-40K" placeholder="25-40K"></div>
+            <div class="form-group"><label class="form-label">工作年限</label><input type="text" id="experience" class="form-input" placeholder="3年"></div>
+            <div class="form-group"><label class="form-label">期望薪资</label><input type="text" id="salary" class="form-input" placeholder="25-40K"></div>
           </div>
         </div>
         <div class="form-section">
           <div class="form-section-title">品牌技能</div>
-          <div class="form-group full"><label class="form-label">核心能力（逗号分隔）</label><input type="text" id="skills" class="form-input"value="需求分析与PRD撰写, 数据分析, 竞品分析, 原型设计, A/B测试, LLM原理, Prompt工程, RAG架构"value="Python, PyTorch, TensorFlow, 深度学习, NLP, CV, Transformer, 模型部署"value="Python, LangChain, RAG, Milvus, FastAPI, 行业API对接"value="React, Vue, TypeScript, SSE/WebSocket, Prompt模板管理, LLM API集成, Streaming"value="Python, Go, FastAPI, vLLM, Milvus, Redis, Docker, K8s, gRPC"value="SQL, A/B测试, ChatGPT, Midjourney, 内容策划, Prompt优化, 数据分析"value="数据标注, 标注工具, 质量控制, QA审核, NLP标注规范, CV标注"value="AI安全对齐, Prompt注入防御, Guardrails, 红队测试, LLM漏洞评估"value="AI解决方案, 技术演讲, 需求分析, POC演示, 招投标, 客户培训"value="AI品牌营销, 社交媒体运营, AIGC内容生产, KOL合作, 品牌策划" placeholder="AI品牌营销, 社交媒体运营, AIGC内容生产, KOL合作, 品牌策划"></div>
+          <div class="form-group full"><label class="form-label">核心能力（逗号分隔）</label><input type="text" id="skills" class="form-input" value="AI营销, 社媒运营, AIGC, KOL, 品牌策划"></div>
         </div>
         <div class="form-section">
           <div class="form-section-title">项目经历</div>
-          <div class="form-group full"><label class="form-label">品牌项目</label><textarea id="project" class="form-textarea" placeholder="AI产品品牌推广：0-1搭建品牌内容体系，AIGC工具提升内容产出3倍，社媒粉丝10万+...">主导AI对话平台前端开发，实现SSE流式对话、多轮会话管理、Token截断等功能。流式渲染延迟<200ms，支持20+轮上下文。</textarea></div>
+          <div class="form-group full"><label class="form-label">品牌项目</label><textarea id="project" class="form-textarea" >品牌推广，10万+粉丝，AIGC 3倍产出</textarea>></textarea></div>
         </div>
       `
     };

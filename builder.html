@@ -100,6 +100,8 @@
     </aside>
   </main>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
   <script>
     // Job names
     const jobNames = {
@@ -295,7 +297,20 @@
     }
 
     function exportResume() {
-      alert('导出功能开发中...');
+      const { jsPDF } = window.jspdf;
+      const paper = document.getElementById('resumePaper');
+      html2canvas(paper, { scale: 2, useCORS: true }).then(canvas => {
+        const imgData = canvas.toDataURL('image/png');
+        const pdf = new jsPDF('p', 'mm', 'a4');
+        const pw = 210, ph = 297;
+        const imgW = pw - 20, imgH = (canvas.height * imgW) / canvas.width;
+        pdf.addImage(imgData, 'PNG', 10, 10, imgW, imgH);
+        const name = document.getElementById('name').value || 'resume';
+        pdf.save(name + '.pdf');
+      }).catch(err => {
+        console.error('Export failed:', err);
+        alert('导出失败，请重试');
+      });
     }
 
     // Init

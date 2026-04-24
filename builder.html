@@ -771,36 +771,22 @@
           <span>💼 ${exp}</span>
           <span>💰 ${salary}</span>
         </div>
-        
+
         <div class="resume-section">
           <div class="resume-section-title">个人简介</div>
           <p class="resume-text">${summary}</p>
         </div>
-        
-        ${skills.length ? `
-        <div class="resume-section">
-          <div class="resume-section-title">核心技能</div>
-          <div class="resume-skills">
-            ${skills.map(s => `<span class="skill-tag">${s}</span>`).join('')}
-          </div>
-        </div>
-        ` : ''}
-        
+
+        ${skills.length ? '<div class="resume-section"><div class="resume-section-title">核心技能</div><div class="resume-skills">' + skills.map(s => '<span class="skill-tag">' + s + '</span>').join('') + '</div></div>' : ''}
+
         <div class="resume-section">
           <div class="resume-section-title">项目经历</div>
           <div class="resume-item">
             <div class="resume-item-desc">${project}</div>
           </div>
         </div>
-        
-        ${getVal('work') ? `
-        <div class="resume-section">
-          <div class="resume-section-title">工作经历</div>
-          <div class="resume-item">
-            <div class="resume-item-desc">${work}</div>
-          </div>
-        </div>
-        ` : ''}
+
+        ${getVal('work') ? '<div class="resume-section"><div class="resume-section-title">工作经历</div><div class="resume-item"><div class="resume-item-desc">' + getVal('work') + '</div></div></div>' : ''}
       `;
       
       // Auto-save
